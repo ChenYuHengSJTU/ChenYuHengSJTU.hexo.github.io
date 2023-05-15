@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dragon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dragon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenyuhengsjtu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MITOS_Lab02代码参考链接：ChenYuHengSJTU&#x2F;MIT_OSLab at syscall (github.com)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MITOS_Lab02">
+<meta property="og:url" content="https://chenyuhengsjtu.github.io/2023/03/07/MITOS-Lab02/index.html">
+<meta property="og:site_name" content="Yuheng Chen Blog">
+<meta property="og:description" content="MITOS_Lab02代码参考链接：ChenYuHengSJTU&#x2F;MIT_OSLab at syscall (github.com)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-07T05:49:01.000Z">
+<meta property="article:modified_time" content="2023-03-07T05:57:30.762Z">
+<meta property="article:author" content="ChenYuHeng">
+<meta property="article:tag" content="Lab">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://chenyuhengsjtu.github.io/2023/03/07/MITOS-Lab02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>MITOS_Lab02 | Yuheng Chen Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Yuheng Chen Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yuheng Chen Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/AboutMe/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/chenyuhengsjtu" class="github-corner" title="NightTeam GitHub" aria-label="NightTeam GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/2023/03/07/MITOS-Lab02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Irving1.jpg">
+      <meta itemprop="name" content="ChenYuHeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuheng Chen Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MITOS_Lab02
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-03-07 13:49:01 / Modified: 13:57:30" itemprop="dateCreated datePublished" datetime="2023-03-07T13:49:01+08:00">2023-03-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MITOS/" itemprop="url" rel="index"><span itemprop="name">MITOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="MITOS-Lab02"><a href="#MITOS-Lab02" class="headerlink" title="MITOS_Lab02"></a>MITOS_Lab02</h1><p><strong>代码参考链接：<a target="_blank" rel="noopener" href="https://github.com/ChenYuHengSJTU/MIT_OSLab/tree/syscall">ChenYuHengSJTU/MIT_OSLab at syscall (github.com)</a></strong></p>
+<span id="more"></span>
+<h2 id="System-call-tracing-moderate"><a href="#System-call-tracing-moderate" class="headerlink" title="System call tracing (moderate)"></a>System call tracing (<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2020/labs/guidance.html">moderate</a>)</h2><hr>
+<p><strong>TODO</strong></p>
+<p>In this assignment you will add a system call tracing feature that may help you when debugging later labs. You’ll create a new <code>trace</code> system call that will control tracing. It should take one argument, an integer “mask”, whose bits specify which system calls to trace. For example, to trace the fork system call, a program calls <code>trace(1 &lt;&lt; SYS_fork)</code>, where <code>SYS_fork</code> is a syscall number from <code>kernel/syscall.h</code>. You have to modify the xv6 kernel to print out a line when each system call is about to return, if the system call’s number is set in the mask. The line should contain the process id, the name of the system call and the return value; you don’t need to print the system call arguments. The <code>trace</code> system call should enable tracing for the process that calls it and any children that it subsequently forks, but should not affect other processes.</p>
+<p>We provide a <code>trace</code> user-level program that runs another program with tracing enabled (see <code>user/trace.c</code>). When you’re done, you should see output like this:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">trace 32 grep hello README</span></span><br><span class="line">3: syscall read -&gt; 1023</span><br><span class="line">3: syscall read -&gt; 966</span><br><span class="line">3: syscall read -&gt; 70</span><br><span class="line">3: syscall read -&gt; 0</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">$ trace 2147483647 grep hello README</span></span><br><span class="line">4: syscall trace -&gt; 0</span><br><span class="line">4: syscall exec -&gt; 3</span><br><span class="line">4: syscall open -&gt; 3</span><br><span class="line">4: syscall read -&gt; 1023</span><br><span class="line">4: syscall read -&gt; 966</span><br><span class="line">4: syscall read -&gt; 70</span><br><span class="line">4: syscall read -&gt; 0</span><br><span class="line">4: syscall close -&gt; 0</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">$ grep hello README</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash">$ trace 2 usertests forkforkfork</span></span><br><span class="line">usertests starting</span><br><span class="line">test forkforkfork: 407: syscall fork -&gt; 408</span><br><span class="line">408: syscall fork -&gt; 409</span><br><span class="line">409: syscall fork -&gt; 410</span><br><span class="line">410: syscall fork -&gt; 411</span><br><span class="line">409: syscall fork -&gt; 412</span><br><span class="line">410: syscall fork -&gt; 413</span><br><span class="line">409: syscall fork -&gt; 414</span><br><span class="line">411: syscall fork -&gt; 415</span><br><span class="line">...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"> </span> </span><br></pre></td></tr></table></figure>
+<p>In the first example above, trace invokes grep tracing just the read system call. The 32 is <code>1&lt;&lt;SYS_read</code>. In the second example, trace runs grep while tracing all system calls; the 2147583647 has all 31 low bits set. In the third example, the program isn’t traced, so no trace output is printed. In the fourth example, the fork system calls of all the descendants of the <code>forkforkfork</code> test in <code>usertests</code> are being traced. Your solution is correct if your program behaves as shown above (though the process IDs may be different).</p>
+<p><strong>Hints</strong></p>
+<ul>
+<li>Add <code>$U/_trace</code> to UPROGS in Makefile</li>
+<li>Run make qemu and you will see that the compiler cannot compile <code>user/trace.c</code>, because the user-space stubs for the system call don’t exist yet: add a prototype for the system call to <code>user/user.h</code>, a stub to <code>user/usys.pl</code>, and a syscall number to <code>kernel/syscall.h</code>. The Makefile invokes the perl script <code>user/usys.pl</code>, which produces <code>user/usys.S</code>, the actual system call stubs, which use the RISC-V <code>ecall</code> instruction to transition to the kernel. Once you fix the compilation issues, run trace 32 grep hello README; it will fail because you haven’t implemented the system call in the kernel yet.</li>
+<li>Add a <code>sys_trace()</code> function in <code>kernel/sysproc.c</code> that implements the new system call by remembering its argument in a new variable in the <code>proc</code> structure (see <code>kernel/proc.h</code>). The functions to retrieve system call arguments from user space are in <code>kernel/syscall.c</code>, and you can see examples of their use in <code>kernel/sysproc.c</code>.</li>
+<li>Modify <code>fork()</code> (see <code>kernel/proc.c</code>) to copy the trace mask from the parent to the child process.</li>
+<li>Modify the <code>syscall()</code> function in <code>kernel/syscall.c</code> to print the trace output. You will need to add an array of syscall names to index into.</li>
+</ul>
+<hr>
+<h2 id="Sysinfo-moderate"><a href="#Sysinfo-moderate" class="headerlink" title="Sysinfo (moderate)"></a>Sysinfo (<a target="_blank" rel="noopener" href="https://pdos.csail.mit.edu/6.828/2020/labs/guidance.html">moderate</a>)</h2><hr>
+<p><strong>TODO</strong></p>
+<p>In this assignment you will add a system call, <code>sysinfo</code>, that collects information about the running system. The system call takes one argument: a pointer to a <code>struct sysinfo</code> (see <code>kernel/sysinfo.h</code>). The kernel should fill out the fields of this struct: the <code>freemem</code> field should be set to the number of bytes of free memory, and the <code>nproc</code> field should be set to the number of processes whose <code>state</code> is not <code>UNUSED</code>. We provide a test program <code>sysinfotest</code>; you pass this assignment if it prints “sysinfotest: OK”.</p>
+<p><strong>Hints</strong></p>
+<ul>
+<li><p>Add <code>$U/_sysinfotest</code> to UPROGS in Makefile</p>
+</li>
+<li><p>Run make qemu; <code>user/sysinfotest.c</code> will fail to compile. Add the system call sysinfo, following the same steps as in the previous assignment. To declare the prototype for sysinfo() <code>in user/user.h</code> you need predeclare the existence of <code>struct sysinfo</code>:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sysinfo</span>;</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sysinfo</span><span class="params">(<span class="keyword">struct</span> sysinfo *)</span>;</span><br></pre></td></tr></table></figure>
+<p>Once you fix the compilation issues, run <code>sysinfotest</code>; it will fail because you haven’t implemented the system call in the kernel yet.</p>
+</li>
+<li><p>sysinfo needs to copy a <code>struct sysinfo</code> back to user space; see <code>sys_fstat()</code> (<code>kernel/sysfile.c</code>) and <code>filestat()</code> (<code>kernel/file.c</code>) for examples of how to do that using <code>copyout()</code>.</p>
+</li>
+<li><p>To collect the amount of free memory, add a function to <code>kernel/kalloc.c</code></p>
+</li>
+<li><p>To collect the number of processes, add a function to <code>kernel/proc.c</code></p>
+</li>
+</ul>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lab/" rel="tag"># Lab</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/07/MITOS-Lab01/" rel="prev" title="MITOS_Lab01">
+      <i class="fa fa-chevron-left"></i> MITOS_Lab01
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MITOS-Lab02"><span class="nav-number">1.</span> <span class="nav-text">MITOS_Lab02</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#System-call-tracing-moderate"><span class="nav-number">1.1.</span> <span class="nav-text">System call tracing (moderate)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sysinfo-moderate"><span class="nav-number">1.2.</span> <span class="nav-text">Sysinfo (moderate)</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ChenYuHeng"
+      src="/images/Irving1.jpg">
+  <p class="site-author-name" itemprop="name">ChenYuHeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ChenYuHengSJTU" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ChenYuHengSJTU" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chenyhsjtu@gmail.com" title="E-Mail → mailto:chenyhsjtu@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChenYuHeng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">25 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>

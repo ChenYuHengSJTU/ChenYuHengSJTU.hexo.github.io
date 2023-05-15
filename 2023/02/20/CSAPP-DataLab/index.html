@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/dragon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/dragon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chenyuhengsjtu.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CSAPP Datalab注意可以使用的op以及op的总个数限制 代码参考：CSAPP_Labs&#x2F;datalab&#x2F;datalab-handout at main · ChenYuHengSJTU&#x2F;CSAPP_Labs (github.com)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAPP_DataLab">
+<meta property="og:url" content="https://chenyuhengsjtu.github.io/2023/02/20/CSAPP-DataLab/index.html">
+<meta property="og:site_name" content="Yuheng Chen Blog">
+<meta property="og:description" content="CSAPP Datalab注意可以使用的op以及op的总个数限制 代码参考：CSAPP_Labs&#x2F;datalab&#x2F;datalab-handout at main · ChenYuHengSJTU&#x2F;CSAPP_Labs (github.com)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chenyuhengsjtu.github.io/2023/02/20/CSAPP-DataLab/image-20230313133456674.png">
+<meta property="article:published_time" content="2023-02-20T11:42:22.000Z">
+<meta property="article:modified_time" content="2023-03-13T05:35:31.984Z">
+<meta property="article:author" content="ChenYuHeng">
+<meta property="article:tag" content="Lab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chenyuhengsjtu.github.io/2023/02/20/CSAPP-DataLab/image-20230313133456674.png">
+
+<link rel="canonical" href="https://chenyuhengsjtu.github.io/2023/02/20/CSAPP-DataLab/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>CSAPP_DataLab | Yuheng Chen Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Yuheng Chen Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yuheng Chen Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/AboutMe/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/chenyuhengsjtu" class="github-corner" title="NightTeam GitHub" aria-label="NightTeam GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/2023/02/20/CSAPP-DataLab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/Irving1.jpg">
+      <meta itemprop="name" content="ChenYuHeng">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuheng Chen Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSAPP_DataLab
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2023-02-20 19:42:22" itemprop="dateCreated datePublished" datetime="2023-02-20T19:42:22+08:00">2023-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-03-13 13:35:31" itemprop="dateModified" datetime="2023-03-13T13:35:31+08:00">2023-03-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSAPP/" itemprop="url" rel="index"><span itemprop="name">CSAPP</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>8.2k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>7 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CSAPP-Datalab"><a href="#CSAPP-Datalab" class="headerlink" title="CSAPP Datalab"></a>CSAPP Datalab</h1><p><strong>注意可以使用的op以及op的总个数限制</strong></p>
+<p><strong>代码参考：<a target="_blank" rel="noopener" href="https://github.com/ChenYuHengSJTU/CSAPP_Labs/tree/main/datalab/datalab-handout">CSAPP_Labs/datalab/datalab-handout at main · ChenYuHengSJTU/CSAPP_Labs (github.com)</a></strong></p>
+<span id="more"></span>
+<h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><ul>
+<li>仅使用~和&amp;来实现按位异或</li>
+<li>想法来源：离散数学真值表</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * bitXor - x^y using only ~ and &amp; </span></span><br><span class="line"><span class="comment"> *   Example: bitXor(4, 5) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ~ &amp;</span></span><br><span class="line"><span class="comment"> *   Max ops: 14</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">bitXor</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="type">int</span> m = (~x) &amp; y;</span><br><span class="line">  <span class="type">int</span> n = (~y) &amp; x;</span><br><span class="line">  <span class="keyword">return</span> ~((~m) &amp;  (~n));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><ul>
+<li>返回Tmin</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * tmin - return minimum two&#x27;s complement integer </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 4</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">tmin</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">  <span class="comment">// easy</span></span><br><span class="line">  <span class="keyword">return</span> (<span class="number">1</span> &lt;&lt; <span class="number">31</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3"><a href="#3" class="headerlink" title="3"></a>3</h4><ul>
+<li>这题着实把我整崩溃了</li>
+<li>其实想法并不难，从Tmax的特性入手即可</li>
+<li>0x7fffffff左移1位（即x*2 = x + x ）后加2就是0，当然需要排除-1（0xffffffff）的情况，即!!(x+1)即可</li>
+<li>但是在处理的过程中，发现给我的答错了</li>
+<li>百思不得其解</li>
+<li>后来使用gdb考察汇编，发现整个isTmax函数只有三行汇编，而且汇编的返回值一定是0</li>
+<li>解决方法：把makefile中的-Og的优化选项去掉，这样编译器才会乖乖算出(x + x +2)的值,否则就会优化掉</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * isTmax - returns 1 if x is the maximum, two&#x27;s complement number,</span></span><br><span class="line"><span class="comment"> *     and 0 otherwise </span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | +</span></span><br><span class="line"><span class="comment"> *   Max ops: 10</span></span><br><span class="line"><span class="comment"> *   Rating: 1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">isTmax</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> y = x + x + <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> ((!y) &amp; (!!(x + <span class="number">1</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4"><a href="#4" class="headerlink" title="4"></a>4</h4><ul>
+<li>不断配合使用 &lt;&lt; 和 | ，来构造出0xaaaaaaaa，x &amp; 0xaaaaaaaa后，如果确为allOddbits，应该等于0xaaaaaaaa，在加上 -0xaaaaaaaa （~0xaaaaaaaa+1），判断是否为0</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * allOddBits - return 1 if all odd-numbered bits in word set to 1</span></span><br><span class="line"><span class="comment"> *   where bits are numbered from 0 (least significant) to 31 (most significant)</span></span><br><span class="line"><span class="comment"> *   Examples allOddBits(0xFFFFFFFD) = 0, allOddBits(0xAAAAAAAA) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 12</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">allOddBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="comment">// even-numbered bits can also be 1</span></span><br><span class="line">  <span class="type">int</span> mask1 = <span class="number">0xaa</span>;</span><br><span class="line">  <span class="type">int</span> mask2 = mask1 &lt;&lt; <span class="number">8</span>;</span><br><span class="line">  <span class="type">int</span> mask3 = mask2 &lt;&lt; <span class="number">8</span>;</span><br><span class="line">  <span class="type">int</span> mask4 = mask3 &lt;&lt; <span class="number">8</span>;</span><br><span class="line">  <span class="type">int</span> mask = (mask1 | mask2 | mask3 | mask4);</span><br><span class="line">  <span class="comment">// x &amp; mask clears the impact of even-numbered 1s</span></span><br><span class="line">  <span class="comment">// to judge whether it equals to 0xaaaaaaaa</span></span><br><span class="line">  <span class="keyword">return</span> !((x &amp; mask) + (~mask) + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5"><a href="#5" class="headerlink" title="5"></a>5</h4><ul>
+<li>在树状数组中习得</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * negate - return -x </span></span><br><span class="line"><span class="comment"> *   Example: negate(1) = -1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 5</span></span><br><span class="line"><span class="comment"> *   Rating: 2</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">negate</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="comment">// easy</span></span><br><span class="line">  <span class="keyword">return</span> (~x) + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6"><a href="#6" class="headerlink" title="6"></a>6</h4><ul>
+<li>第一种方法超出的最多运算符数限制</li>
+<li>第二种方法是取出最低位，然后先判断0x30中的3，再分两种情况讨论最低四位，详见注释</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isAsciiDigit - return 1 if 0x30 &lt;= x &lt;= 0x39 (ASCII codes for characters &#x27;0&#x27; to &#x27;9&#x27;)</span></span><br><span class="line"><span class="comment"> *   Example: isAsciiDigit(0x35) = 1.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x3a) = 0.</span></span><br><span class="line"><span class="comment"> *            isAsciiDigit(0x05) = 0.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 15</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">isAsciiDigit</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="comment">// my first method run out of all the 15 available ops</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// int mask1 = 0xff;</span></span><br><span class="line">  <span class="comment">// int mask2 = mask1 &lt;&lt; 8;</span></span><br><span class="line">  <span class="comment">// int mask3 = mask2 &lt;&lt; 8;</span></span><br><span class="line">  <span class="comment">// int mask4 = mask3 &lt;&lt; 8;</span></span><br><span class="line">  <span class="comment">// int mask = (0xc0 | mask2 | mask3 | mask4);</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// int c = (x &amp; mask); </span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// int xx = x &amp; 0x3f;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// int c1 = !(((xx + (~0x30) +1) &gt;&gt; 31) &amp; (0x1)); // == 0</span></span><br><span class="line">  <span class="comment">// int c2 = !((((~xx) + 1 + 0x39) &gt;&gt; 31) &amp; (0x1)); // == 0</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// return (!c) &amp; (c1 &amp; c2);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">// first step is to fetch the low four bits</span></span><br><span class="line">  <span class="type">int</span> mask = <span class="number">0xf</span>;</span><br><span class="line">  <span class="type">int</span> low = mask &amp; x;</span><br><span class="line">  <span class="comment">// then judge the upper 28 bits;use ^ to judge whether it equals to 0x30</span></span><br><span class="line">  <span class="type">int</span> xx = x + (~low) +<span class="number">1</span>;</span><br><span class="line">  <span class="type">int</span> c = xx ^ <span class="number">0x30</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// two cases of the low four bits</span></span><br><span class="line">  <span class="comment">// 0xxx or 1000 or 1001</span></span><br><span class="line">  <span class="type">int</span> mid = low &amp; <span class="number">0x6</span>;</span><br><span class="line">  <span class="type">int</span> high = low &gt;&gt; <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (!c) &amp; ((!high) | (!mid));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7"><a href="#7" class="headerlink" title="7"></a>7</h4><ul>
+<li>需要一个小trick：!!x将x转换为0或1</li>
+<li>还有就是，得到0或1后，怎么转换为0xffffffff，因为我们要用0xffffffff &amp; y或0xffffffff &amp; z来得到y和z。</li>
+<li>还是利用0,1,-1之间的位级关系</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * conditional - same as x ? y : z </span></span><br><span class="line"><span class="comment"> *   Example: conditional(2,4,5) = 4</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 16</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">conditional</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span> &#123;</span><br><span class="line">  <span class="comment">// use ! to judge , to change odinary nums to 0 or 1</span></span><br><span class="line">  <span class="comment">// after we get 0 or 1</span></span><br><span class="line">  <span class="comment">// for 0 : we can use !x to change it to 1 , then ~x + 1 to get -1 , with</span></span><br><span class="line">  <span class="comment">// all bits of 1</span></span><br><span class="line">  <span class="comment">// for 1 : we can use !!x to change it back to 1, then ~x+1 to get -1</span></span><br><span class="line">  <span class="keyword">return</span> ((~(!(!x)) + <span class="number">1</span>) &amp; y) | ((~(!x) + <span class="number">1</span>) &amp; z);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8"><a href="#8" class="headerlink" title="8"></a>8</h4><ul>
+<li>判等：^</li>
+<li>基本想法就是作差判断符号</li>
+<li>但是需要考虑溢出，仅需考虑正数减负数的溢出</li>
+<li>使用符号位判断溢出的特殊情况</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * isLessOrEqual - if x &lt;= y  then return 1, else return 0 </span></span><br><span class="line"><span class="comment"> *   Example: isLessOrEqual(4,5) = 1.</span></span><br><span class="line"><span class="comment"> *   Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 24</span></span><br><span class="line"><span class="comment"> *   Rating: 3</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">isLessOrEqual</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> &#123;</span><br><span class="line">  <span class="comment">// use ^ to judge equalance</span></span><br><span class="line">  <span class="comment">// to avoid overflow , use the most significant bit to deal with different cases</span></span><br><span class="line">  <span class="type">int</span> xs = x &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  <span class="type">int</span> ys = y &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  <span class="keyword">return</span> (!(x ^ y)) | (xs &amp; (!ys)) | ((!(xs ^ ys)) &amp; (x + (~y) +<span class="number">1</span>) &gt;&gt; <span class="number">31</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="9"><a href="#9" class="headerlink" title="9"></a>9</h4><ul>
+<li>实现逻辑非</li>
+<li>把数值分为三类：positive，negative，zero</li>
+<li>取x与-x的符号位，在进行&amp;0x1（因为对负数实行逻辑右移）+ 1，得到xs与negxs</li>
+<li>对于非零值，两者一定有一者为0</li>
+<li>对于零，两者均为1</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * logicalNeg - implement the ! operator, using all of </span></span><br><span class="line"><span class="comment"> *              the legal operators except !</span></span><br><span class="line"><span class="comment"> *   Examples: logicalNeg(3) = 0, logicalNeg(0) = 1</span></span><br><span class="line"><span class="comment"> *   Legal ops: ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *   Max ops: 12</span></span><br><span class="line"><span class="comment"> *   Rating: 4 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">logicalNeg</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="comment">// we divide all x into three groups: 0,positive,negative</span></span><br><span class="line">  <span class="comment">// for negative and positive,one and only one of the significant bit of x and -x will be 1</span></span><br><span class="line">  <span class="comment">// but for 0,they are all 0</span></span><br><span class="line">  <span class="comment">// so we add 1 ,keep the trait for positive and negative numbers,but change the case of 0</span></span><br><span class="line">  <span class="comment">// last,for non-zero : xs == 0 &amp;&amp; negxs == 1 || xs == 1 &amp;&amp; negxs == 0</span></span><br><span class="line">  <span class="comment">// for zero : xs == 1 || negxs == 1 </span></span><br><span class="line">  <span class="type">int</span> xs = (((x &gt;&gt; <span class="number">31</span>) &amp; <span class="number">0x1</span>) + <span class="number">1</span>) &amp; <span class="number">0x1</span> ;</span><br><span class="line">  <span class="type">int</span> negxs = (((((~x) + <span class="number">1</span>) &gt;&gt; <span class="number">31</span>) &amp; <span class="number">0x1</span>) + <span class="number">1</span>) &amp; <span class="number">0x1</span> ;</span><br><span class="line">  <span class="keyword">return</span> xs &amp; negxs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="10"><a href="#10" class="headerlink" title="10"></a>10</h4><ul>
+<li>kind of hard</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* howManyBits - return the minimum number of bits required to represent x in</span></span><br><span class="line"><span class="comment"> *             two&#x27;s complement</span></span><br><span class="line"><span class="comment"> *  Examples: howManyBits(12) = 5</span></span><br><span class="line"><span class="comment"> *            howManyBits(298) = 10</span></span><br><span class="line"><span class="comment"> *            howManyBits(-5) = 4</span></span><br><span class="line"><span class="comment"> *            howManyBits(0)  = 1</span></span><br><span class="line"><span class="comment"> *            howManyBits(-1) = 1</span></span><br><span class="line"><span class="comment"> *            howManyBits(0x80000000) = 32</span></span><br><span class="line"><span class="comment"> *  Legal ops: ! ~ &amp; ^ | + &lt;&lt; &gt;&gt;</span></span><br><span class="line"><span class="comment"> *  Max ops: 90</span></span><br><span class="line"><span class="comment"> *  Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">howManyBits</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> isZero = !x;</span><br><span class="line">  <span class="type">int</span> mask = ((!!x) &lt;&lt; <span class="number">31</span>) &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> flag = x &gt;&gt; <span class="number">31</span>;</span><br><span class="line"></span><br><span class="line">  x = ((~flag) &amp; x) | (flag &amp; (~x));</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> bit_16, bit_8, bit_4, bit_2, bit_1, bit_0;</span><br><span class="line"></span><br><span class="line">  bit_16 = (!((!!(x &gt;&gt; <span class="number">16</span>)) ^ <span class="number">0x1</span>)) &lt;&lt; <span class="number">4</span>;</span><br><span class="line">  x &gt;&gt;= bit_16;</span><br><span class="line"></span><br><span class="line">  bit_8 = (!((!!(x &gt;&gt; <span class="number">8</span>)) ^ <span class="number">0x1</span>)) &lt;&lt; <span class="number">3</span>;</span><br><span class="line">  x &gt;&gt;= bit_8;</span><br><span class="line"></span><br><span class="line">  bit_4 = (!((!!(x &gt;&gt; <span class="number">4</span>)) ^ <span class="number">0x1</span>)) &lt;&lt; <span class="number">2</span>;</span><br><span class="line">  x &gt;&gt;= bit_4;</span><br><span class="line"></span><br><span class="line">  bit_2 = (!((!!(x &gt;&gt; <span class="number">2</span>)) ^ <span class="number">0x1</span>)) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">  x &gt;&gt;= bit_2;</span><br><span class="line"></span><br><span class="line">  bit_1 = (!((!!(x &gt;&gt; <span class="number">1</span>)) ^ <span class="number">0x1</span>));</span><br><span class="line">  x &gt;&gt;= bit_1;</span><br><span class="line"></span><br><span class="line">  bit_0 = x;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> res = bit_16 + bit_8 + bit_4 + bit_2 + bit_1 + bit_0 + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (isZero | (mask &amp; res));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="11"><a href="#11" class="headerlink" title="11"></a>11</h4><ul>
+<li>浮点数的三道题均不难，更多的是考察对于IEEE754浮点数标准的理解记忆</li>
+<li>第一题，分情况（规格化，非规格化，NAN）讨论即可</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatScale2 - Return bit-level equivalent of expression 2*f for</span></span><br><span class="line"><span class="comment"> *   floating point argument f.</span></span><br><span class="line"><span class="comment"> *   Both the argument and result are passed as unsigned int&#x27;s, but</span></span><br><span class="line"><span class="comment"> *   they are to be interpreted as the bit-level representation of</span></span><br><span class="line"><span class="comment"> *   single-precision floating point values.</span></span><br><span class="line"><span class="comment"> *   When argument is NaN, return argument</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">floatScale2</span><span class="params">(<span class="type">unsigned</span> uf)</span> &#123;</span><br><span class="line">  <span class="type">int</span> expmask = <span class="number">0xff</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">  <span class="type">int</span> s = uf &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  <span class="type">int</span> fmask1 = <span class="number">0xff</span>;</span><br><span class="line">  <span class="type">int</span> fmask2 = fmask1 &lt;&lt; <span class="number">8</span>;</span><br><span class="line">  <span class="type">int</span> fmask3 = fmask2 &lt;&lt; <span class="number">7</span>;</span><br><span class="line">  <span class="type">int</span> fmask = fmask1 | fmask2 | fmask3;</span><br><span class="line">  <span class="type">int</span> frac = uf &amp; fmask;</span><br><span class="line">  <span class="type">int</span> <span class="built_in">exp</span> = (uf &amp; expmask) &gt;&gt; <span class="number">23</span>;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">exp</span> &amp;&amp; (<span class="built_in">exp</span> - <span class="number">0xff</span>))</span><br><span class="line">    <span class="built_in">exp</span> = <span class="built_in">exp</span> + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(!<span class="built_in">exp</span>)</span><br><span class="line">    frac = frac &lt;&lt; <span class="number">1</span>;</span><br><span class="line">  uf = (s &lt;&lt; <span class="number">31</span>) | (<span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>) | (frac);</span><br><span class="line">  <span class="keyword">return</span> uf;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="12"><a href="#12" class="headerlink" title="12"></a>12</h4><ul>
+<li>也是只需分情况讨论即可，注意exp位域的最大值为1111110，不能是1111111</li>
+<li>从这道题中可以get到，对于溢出，均处理为inf，而不是NAN</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatFloat2Int - Return bit-level equivalent of expression (int) f</span></span><br><span class="line"><span class="comment"> *   for floating point argument f.</span></span><br><span class="line"><span class="comment"> *   Argument is passed as unsigned int, but</span></span><br><span class="line"><span class="comment"> *   it is to be interpreted as the bit-level representation of a</span></span><br><span class="line"><span class="comment"> *   single-precision floating point value.</span></span><br><span class="line"><span class="comment"> *   Anything out of range (including NaN and infinity) should return</span></span><br><span class="line"><span class="comment"> *   0x80000000u.</span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. also if, while</span></span><br><span class="line"><span class="comment"> *   Max ops: 30</span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">floatFloat2Int</span><span class="params">(<span class="type">unsigned</span> uf)</span> &#123;</span><br><span class="line">  <span class="type">int</span> expmask = <span class="number">0xff</span> &lt;&lt; <span class="number">23</span>;</span><br><span class="line">  <span class="type">int</span> <span class="built_in">exp</span> = (uf &amp; expmask) &gt;&gt; <span class="number">23</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> s = uf &gt;&gt; <span class="number">31</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="type">int</span> fmask1 = <span class="number">0xff</span>;</span><br><span class="line">  <span class="type">int</span> fmask2 = fmask1 &lt;&lt; <span class="number">8</span>;</span><br><span class="line">  <span class="type">int</span> fmask3 = fmask2 &lt;&lt; <span class="number">7</span>;</span><br><span class="line">  <span class="type">int</span> fmask = fmask1 | fmask2 | fmask3;</span><br><span class="line">  <span class="type">int</span> frac = uf &amp; fmask;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> M;</span><br><span class="line">  <span class="type">int</span> E;</span><br><span class="line">  <span class="type">int</span> bias = <span class="number">127</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">exp</span> == <span class="number">0xff</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0x80000000</span>u;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">exp</span> &amp;&amp; (<span class="built_in">exp</span> - <span class="number">0xff</span>))&#123;</span><br><span class="line">    M = <span class="number">1</span> &lt;&lt; <span class="number">23</span> | frac;</span><br><span class="line">    E = <span class="built_in">exp</span> - bias;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    M = frac;</span><br><span class="line">    E = <span class="number">1</span> - bias;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> res;</span><br><span class="line">  <span class="keyword">if</span>(E &gt; <span class="number">23</span>)&#123;</span><br><span class="line">    res = M &lt;&lt; E;</span><br><span class="line">    <span class="comment">// do not forget this anything out of range</span></span><br><span class="line">    <span class="keyword">if</span>(E &gt;= <span class="number">8</span>) <span class="keyword">return</span> <span class="number">0x80000000</span>u;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(E == <span class="number">23</span>) res = M;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="type">int</span> e = <span class="number">23</span> - E;</span><br><span class="line">    <span class="keyword">if</span>(e &gt;= <span class="number">24</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    res = M &gt;&gt; (<span class="number">23</span> - E);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(s) <span class="keyword">return</span> -res;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="13"><a href="#13" class="headerlink" title="13"></a>13</h4><ul>
+<li>特别注意float的表示范围，是不对称的，既要考虑规格化，也要考虑非规格化</li>
+<li>具体细节可以看书</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment"> * floatPower2 - Return bit-level equivalent of the expression 2.0^x</span></span><br><span class="line"><span class="comment"> *   (2.0 raised to the power x) for any 32-bit integer x.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *   The unsigned value that is returned should have the identical bit</span></span><br><span class="line"><span class="comment"> *   representation as the single-precision floating-point number 2.0^x.</span></span><br><span class="line"><span class="comment"> *   If the result is too small to be represented as a denorm, return</span></span><br><span class="line"><span class="comment"> *   0. If too large, return +INF.</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> *   Legal ops: Any integer/unsigned operations incl. ||, &amp;&amp;. Also if, while </span></span><br><span class="line"><span class="comment"> *   Max ops: 30 </span></span><br><span class="line"><span class="comment"> *   Rating: 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">unsigned</span> <span class="title function_">floatPower2</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">  <span class="type">int</span> <span class="built_in">exp</span>;</span><br><span class="line">  <span class="type">int</span> frac;</span><br><span class="line">  <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">  <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(x &gt;= <span class="number">128</span>)&#123;</span><br><span class="line">    <span class="built_in">exp</span> = <span class="number">0xff</span>;</span><br><span class="line">    frac = <span class="number">0</span>;</span><br><span class="line">    s = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(x &lt; <span class="number">-126</span> - <span class="number">23</span>)&#123;</span><br><span class="line">    frac = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">exp</span> = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(x &gt;= <span class="number">-126</span> - <span class="number">23</span> &amp;&amp; x &lt;= <span class="number">-127</span>)&#123;</span><br><span class="line">    <span class="built_in">exp</span> = <span class="number">0</span>;</span><br><span class="line">    frac = <span class="number">1</span> &lt;&lt; (x - (<span class="number">-126</span> - <span class="number">23</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    frac = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">exp</span> = <span class="number">127</span> + x;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res = (<span class="built_in">exp</span> &lt;&lt; <span class="number">23</span>) | (frac) | (s &lt;&lt; <span class="number">31</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h4><p><code>./run.sh</code></p>
+<img src="/2023/02/20/CSAPP-DataLab/image-20230313133456674.png" class title="This is an example image">
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lab/" rel="tag"># Lab</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/index.html" rel="prev" title="About Myself">
+      <i class="fa fa-chevron-left"></i> About Myself
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/02/27/CSAPP-Bomblab/" rel="next" title="CSAPP_Bomblab">
+      CSAPP_Bomblab <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSAPP-Datalab"><span class="nav-number">1.</span> <span class="nav-text">CSAPP Datalab</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">11</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">12</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">13</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluation"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">Evaluation</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ChenYuHeng"
+      src="/images/Irving1.jpg">
+  <p class="site-author-name" itemprop="name">ChenYuHeng</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ChenYuHengSJTU" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ChenYuHengSJTU" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chenyhsjtu@gmail.com" title="E-Mail → mailto:chenyhsjtu@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChenYuHeng</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">25 mins.</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+    </div>
+</body>
+</html>
