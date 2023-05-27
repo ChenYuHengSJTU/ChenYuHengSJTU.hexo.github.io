@@ -15266,7 +15266,6 @@ body {
 <li>use <em><strong>strsep</strong></em> instead in certain implementation</li>
 </ul>
 </li>
-<li>4096</li>
 </ul>
 
 </div>
@@ -15601,6 +15600,18 @@ int main(int argc, char* argv[]) {
 }
 
 </code></pre>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Demo"><strong>Demo</strong><a class="anchor-link" href="#Demo">&#182;</a></h2><script async id="asciicast-sB15AOEkXsWvgspE1vWil7IKC" src="https://asciinema.org/a/sB15AOEkXsWvgspE1vWil7IKC.js"></script>
 
 </div>
 </div>
@@ -17181,6 +17192,265 @@ int main(int argc, char* argv[]) {
 </div>
 </div>
 </div>
+</div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Demo"><strong>Demo</strong><a class="anchor-link" href="#Demo">&#182;</a></h2><script async id="asciicast-KI2vu7suwqBPBg3gv0FTJZmTt" src="https://asciinema.org/a/KI2vu7suwqBPBg3gv0FTJZmTt.js"></script>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="How-to-check-for-accuracy"><strong>How to check for accuracy</strong><a class="anchor-link" href="#How-to-check-for-accuracy">&#182;</a></h2><ul>
+<li>Manual inspection is not advisable and unreliable</li>
+</ul>
+<!-- > Life is hard, you need Python 
+>
+>                              -- Bruce Eckel
++ I write a python program to take moderate stress testing of my code -->
+
+</div>
+</div>
+</div>
+</div><div class="fragment" >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<blockquote>
+<p>Life is hard, you need Python</p>
+<pre><code>                         -- Bruce Eckel
+</code></pre>
+</blockquote>
+<ul>
+<li>I write a python program to take moderate stress testing of my code</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Test-Demo"><strong>Test Demo</strong><a class="anchor-link" href="#Test-Demo">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment" >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="stress_test.py"><strong>stress_test.py</strong><a class="anchor-link" href="#stress_test.py">&#182;</a></h3><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-c.min.js"></script>
+<pre><code class="language-c line-numbers">
+import sys 
+import string
+import random
+import time
+import re
+
+def generate_random_string(length):
+    printable = string.ascii_letters + string.digits + string.punctuation
+    random_string = ''.join(random.choices(string.ascii_letters, k=length))
+    return random_string
+
+def generate_random_length(n):
+    return random.randint(1, n)
+
+command = ["i", "w", "d"]
+argc = [5, 4, 4]
+
+filename_perfix = "file"
+filename = [""]
+
+Argc = len(sys.argv)
+file_num = 1
+
+if Argc > 1:
+    file_num = int(sys.argv[1])
+
+for i in range(file_num):
+    filename.append(filename_perfix + str(i+1))
+    print("mk " + filename[i+1])
+
+file_content = [""]
+
+for i in range(file_num):
+    file_content.append("")
+
+def Write(index, length, content):
+    file_content[index] = ""
+    written = min(length, len(content))
+    file_content[index] = content[:written]
+
+def Insert(index, pos, l, content):
+    if pos > len(file_content[index]):
+        return
+    tmp = file_content[index]
+    file_content[index] = tmp[:pos] + content + tmp[pos:]
+
+def Delete(index, pos, l):
+    if pos > len(file_content[index]):
+        return
+    tmp = file_content[index]
+    file_content[index] = tmp[:pos]
+    if pos + l > len(tmp):
+        return
+    file_content[index] += tmp[pos+l:]
+
+def List():
+    print("ls")
+    for i in range(file_num):
+        print("cat" + " " + filename[i+1])
+
+def Check():
+    for i in range(file_num):
+        if len(file_content[i]) == 0:
+            content = generate_random_string(1000)
+            Write(i, 1000, content)
+            print("w" + " " + filename[i+1] + " " + str(1000) + " " + content)
+
+def Generate_Output(cmd, index, pos, l, content):
+    if cmd == "i":
+        return "i" + " " + filename[index] + " " + str(pos) + " " + str(l) + " " + content
+    elif cmd == "w":
+        return "w" + " " + filename[index] + " " + str(l) + " " + content
+    elif cmd == "d":
+        return "d" + " " + filename[index] + " " + str(pos) + " " + str(l)
+
+# First write something to the files
+for i in range(file_num):
+    length = 1000
+    content = generate_random_string(length)
+    Write(i, length, content)
+    cmd_line = str(Generate_Output("w", i + 1, 0, length, content))
+    print(cmd_line)
+
+List()
+
+test_num = 3
+for i in range(1, test_num):
+    for j in range(file_num):
+        length = 1000
+        content = generate_random_string(length)
+        if len(file_content[j]) != 0:
+            pos = generate_random_length(len(file_content[i]))
+            l = generate_random_length(len(file_content[j]))
+        else:
+            pos = 0
+            l = 0
+        if i % 3 != 0:
+            cmd = "i"
+        else:
+            cmd = "d"
+        cmd_line= ""
+        cmd_line = str(Generate_Output(cmd, j + 1, pos, l, content))
+        print(cmd_line)
+    List()
+
+List()
+print("e")
+
+with open('check.txt', 'w') as file:
+    file.write(str(file_num))
+    file.write('\n')
+    for i in range(file_num):
+        file.write(file_content[i])
+        file.write("\n")
+</code></pre>
+
+</div>
+</div>
+</div>
+</div></div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Check.py"><strong>Check.py</strong><a class="anchor-link" href="#Check.py">&#182;</a></h2><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-c.min.js"></script>
+<pre><code class="language-c line-numbers">
+import re
+import os
+import subprocess
+pattern = b'w file(\d) \d+ (\w+)'
+
+ref = open('check.txt', 'r')
+file_ref = ref.readlines()
+file_num = int(file_ref[0].strip())
+index = 0
+
+file_content = ["" for i in range(file_num)]
+
+with open('fs.log', 'rb') as file:
+    for line in file:
+        line = line.strip()
+        # print(line)
+        match = re.search(pattern, line)
+        if match:
+            groups = match.groups()
+            # print(groups[0].decode())
+            index = int(groups[0].decode()) - 1
+            content = groups[1].decode()
+            file_content[index] = content
+            # file_num += 1
+
+with open('check.test.txt', 'w') as file:
+    file.write(str(file_num))
+    file.write('\n')
+    for i in range(file_num):
+        file.write(file_content[i])
+        file.write("\n")
+
+result = subprocess.run(['diff', 'check.txt', 'check.test.txt'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+if result.returncode == 0:
+    print("Test Success!")
+else:
+    print("Test Fail...")
+    print(result.stdout.decode('utf-8'))
+</code></pre>
+
+</div>
+</div>
+</div>
+</div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Stress-Test-Demo"><strong>Stress Test Demo</strong><a class="anchor-link" href="#Stress-Test-Demo">&#182;</a></h2><script async id="asciicast-18AOFNM2IWwmR6VvlDqMmgG6k" src="https://asciinema.org/a/18AOFNM2IWwmR6VvlDqMmgG6k.js" speed="1.25"></script>
+
+</div>
+</div>
+</div>
 </div></section></section><section ><section >
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -17204,6 +17474,7 @@ int main(int argc, char* argv[]) {
 <li>It turns out that it is important to <strong>unify interfaces</strong> of the disk and file system.</li>
 <li>While we calculate the physical block number from logical block number, we should not use <em>memcpy</em>, <em>memmove</em> to change the disk though it is just a char array in <em>Part 2</em>.</li>
 <li>Otherwise, we should use <strong>write or read block functions</strong> to do that.The abstraction of this layer of encapsulation is very important.Otherwise we have to reimplement some basic functions.</li>
+<li>There is another thing worth noting in socket communication, that is, the data size of send and recv must be the same, otherwise the program will appear asynchronous and strange.</li>
 </ul>
 
 </div>
@@ -19006,6 +19277,18 @@ return 0;
 </div>
 </div>
 </div>
+</div></section><section >
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Demo"><strong>Demo</strong><a class="anchor-link" href="#Demo">&#182;</a></h2><script async id="asciicast-eLmO6tMZekzybx6R5JmDwumyj" src="https://asciinema.org/a/eLmO6tMZekzybx6R5JmDwumyj.js" speed="1.5"></script>
+
+</div>
+</div>
+</div>
 </div></section></section><section ><section >
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -19072,7 +19355,26 @@ return 0;
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Thanks-for-listening!"><center><span style="font-size:100px;color:skyblue;font-weight:30px">Thanks for listening!</span></center><a class="anchor-link" href="#Thanks-for-listening!">&#182;</a></h1>
+<!-- 在CSS中定义彩虹渐变 -->
+<style>
+    @keyframes rainbow {
+        0% { color: #ff0000; }
+        16.666% { color: #ff7f00; }
+        33.333% { color: #ffff00; }
+        50% { color: #00ff00; }
+        66.666% { color: #0000ff; }
+        83.333% { color: #4b0082; }
+        100% { color: #8f00ff; }
+    }
+    .rainbow-text {
+        animation: rainbow 4s infinite;
+    }
+</style>
+<!-- 在HTML中应用彩虹文字 -->
+<center>
+<h1 class="rainbow-text">Thanks for listening!</h1>
+</center>
+
 </div>
 </div>
 </div>
