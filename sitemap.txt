@@ -1,4 +1,4 @@
-https://chenyuhengsjtu.github.io/1970/01/01/Practical_Vim/
+https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/
 https://chenyuhengsjtu.github.io/2023/07/12/test/
 https://chenyuhengsjtu.github.io/categories/index.html
 https://chenyuhengsjtu.github.io/SJTU/OS/pre.slides.html
