@@ -512,7 +512,7 @@
   <entry>
     <title>Practical_Vim</title>
     <url>/1970/01/01/Practical_Vim/</url>
-    <content><![CDATA[<p>`<br>&lt;!doctype html&gt;</p>
+    <content><![CDATA[<p>&lt;!doctype html&gt;</p>
 <p><html lang="en"><br>    <head><br>        <meta charset="utf-8"><br>        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></head></html></p>
 <pre><code>    &lt;title&gt;
 </code></pre><p>Practical_Vim<br>&lt;/title&gt;</p>
