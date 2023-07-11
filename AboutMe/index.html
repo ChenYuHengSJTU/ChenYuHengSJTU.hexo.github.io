@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/index.html">
+    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/1970/01/01/Practical_Vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Irving1.jpg">
@@ -174,7 +174,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/index.html" class="post-title-link" itemprop="url">About Myself</a>
+            <a href="/1970/01/01/Practical_Vim/" class="post-title-link" itemprop="url">Practical_Vim</a>
         </h2>
 
         <div class="post-meta">
@@ -184,15 +184,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2023-02-20 19:33:21" itemprop="dateCreated datePublished" datetime="2023-02-20T19:33:21+08:00">2023-02-20</time>
+              <time title="Created: 1970-01-01 08:00:02" itemprop="dateCreated datePublished" datetime="1970-01-01T08:00:02+08:00">1970-01-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-03-18 09:05:10" itemprop="dateModified" datetime="2023-03-18T09:05:10+08:00">2023-03-18</time>
+                <time title="Modified: 2023-07-12 00:03:10" itemprop="dateModified" datetime="2023-07-12T00:03:10+08:00">2023-07-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -200,14 +209,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>61</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
+              <span>2 mins.</span>
             </span>
 
         </div>
@@ -219,10 +228,600 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to MyBlog!</p>
-<p>Wish my blog be of some help to you.</p>
-<p>Have a nice journey!</p>
-<img src="/index/SJTUlogo1.png" class title="This is an example image">
+          <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>
+Practical_Vim
+</title>
+
+        <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/dist/reset.css">
+        <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/dist/reveal.css">
+        <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/dist/theme/white.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css">
+
+        <!-- Theme used for syntax highlighted code -->
+        <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/plugin/highlight/monokai.css">
+    </head>
+    <style>
+        section {
+            font-size: 30px;
+        }
+        p {
+            text-align: left;
+        }
+        ul {
+            text-align: left;
+        }
+        li {
+            text-align: left;
+        }
+
+    </style>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="vim-解决问题的方式">Vim 解决问题的方式</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>结识.命令
+<ul>
+<li>规划按键操作</li>
+<li>一次按键移动，一次按键执行</li>
+</ul></li>
+<li>不要自我重复
+<ul>
+<li>复合命令
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th>复合命令</th>
+<th>等效命令</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C</td>
+<td>c$</td>
+</tr>
+<tr class="even">
+<td>s</td>
+<td>cl</td>
+</tr>
+<tr class="odd">
+<td>S</td>
+<td>^c</td>
+</tr>
+<tr class="even">
+<td>I</td>
+<td>^i</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>$a</td>
+</tr>
+<tr class="even">
+<td>o</td>
+<td>A<CR></CR></td>
+</tr>
+<tr class="odd">
+<td>O</td>
+<td>ko</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>以退为进</li>
+<li>执行，重复，回退
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th>操作</th>
+<th>重复</th>
+<th>回退</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>edit</td>
+<td>.</td>
+<td>u</td>
+</tr>
+<tr class="even">
+<td>f/t{char}</td>
+<td>;</td>
+<td>,</td>
+</tr>
+<tr class="odd">
+<td>F/T{char}</td>
+<td>;</td>
+<td>,</td>
+</tr>
+<tr class="even">
+<td>/pattern<CR></CR></td>
+<td>n</td>
+<td>N</td>
+</tr>
+<tr class="odd">
+<td>?pattern<CR></CR></td>
+<td>n</td>
+<td>N</td>
+</tr>
+<tr class="even">
+<td>: s</td>
+<td>&amp;</td>
+<td>u</td>
+</tr>
+<tr class="odd">
+<td>qx{changes}q</td>
+<td><span class="citation" data-cites="x">@x</span></td>
+<td>u</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li>查找并手动替换
+<ul>
+<li>* 会查找当前光标下的单词</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="普通模式">普通模式</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>把撤销单元切成块
+<ul>
+<li>根据思考的提顿来切分</li>
+<li>up down left right会在insert模式下额外切分</li>
+</ul></li>
+<li>构造可重复的修改
+<ul>
+<li>使 . 发挥出最大的威力</li>
+</ul></li>
+<li>用次数做简单的算数运算
+<ul>
+<li>注意数字的格式</li>
+</ul></li>
+<li>能够重复(.)就别用次数
+<ul>
+<li>使.和u命令都有更细的粒度</li>
+<li><strong><code>执行，重复，回退</code></strong></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="插入模式">插入模式</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>在插入模式中及时修正错误
+<ul>
+<li>&lt;C - h&gt; 回退</li>
+<li>&lt;C - w&gt; 删除前一个单词</li>
+<li>&lt;C - u&gt; 删除至行首</li>
+</ul></li>
+<li>返回普通模式
+<ul>
+<li>&lt;C - [&gt;</li>
+<li>&lt;C - o&gt; 插入-普通模式
+<ul>
+<li>可以执行一次普通模式的指令</li>
+</ul></li>
+</ul></li>
+<li>不离开插入模式，粘贴寄存器中的文本
+<ul>
+<li>&lt;C - r&gt;{register}</li>
+</ul></li>
+<li>16 随时随地做运算</li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>用字符编码插入非常用字符
+<ul>
+<li>&lt;C - v&gt;{123}</li>
+<li>&lt;C - v&gt;u{1234}</li>
+<li>&lt;C - v&gt;{nondigit}</li>
+<li>&lt;C - k&gt;{char1}{char2}
+<ul>
+<li>插入二合字母表示的字符</li>
+</ul></li>
+</ul></li>
+<li>用替换模式替换已有文本
+<ul>
+<li>R</li>
+<li>r – 单个字符</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="可视模式">可视模式</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<p>注意可以使用如r等命令对行，块进行操作，会作用在每一个字符上</p>
+<ul>
+<li>选择高亮区域
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>v</td>
+<td>字符</td>
+</tr>
+<tr class="even">
+<td>V</td>
+<td>行</td>
+</tr>
+<tr class="odd">
+<td>&lt;C-v&gt;</td>
+<td>块</td>
+</tr>
+<tr class="even">
+<td>gv</td>
+<td>重选</td>
+</tr>
+<tr class="odd">
+<td>o</td>
+<td>切换高亮选区的活动端</td>
+</tr>
+</tbody>
+</table></li>
+<li>这些指令可以用于在不同模式下切换</li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>重复执行面向行的可视命令
+<ul>
+<li>. 选择的文本数量和上次相同</li>
+</ul></li>
+<li>只要可能，最好使用操作符命令，而不是可视命令
+<ul>
+<li>可是命令的.可能会产生异常行为</li>
+<li>vit，viw</li>
+<li>可视模式下，U -&gt; gU</li>
+</ul></li>
+<li>用面向列块的可视模式编辑表格数据
+<ul>
+<li>以列为单位工作</li>
+</ul></li>
+<li>修改列文本
+<ul>
+<li>用列块可视模式可以同时往若干行中插入文本</li>
+</ul></li>
+<li>在长短不一的高亮块后添加文本
+<ul>
+<li>使用$</li>
+<li>注意，i，a不能使用，要用I，A代替</li>
+<li>按下&lt;ESC&gt;后会同步更改</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="命令行模式">命令行模式</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>结识命令行模式
+<ul>
+<li>：，/,&lt;C-r&gt;=</li>
+<li>&lt;C-r&gt;{register}插入寄存器内容</li>
+<li>操作缓冲区文本的Ex命令 – 可以无需移动光标进行修改</li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[range]delete [x]</td>
+<td>删除行到寄存器x</td>
+</tr>
+<tr class="even">
+<td>[range]yank [x]</td>
+<td>复制</td>
+</tr>
+<tr class="odd">
+<td>[line]put [x]</td>
+<td>指定行后粘贴寄存器x的内容</td>
+</tr>
+<tr class="even">
+<td>[range]copy {address}</td>
+<td>将指定范围内的行拷贝到{address}所指定的行之下</td>
+</tr>
+<tr class="odd">
+<td>[range]move {address}</td>
+<td>移动</td>
+</tr>
+<tr class="even">
+<td>[range]join</td>
+<td>连接指定范围内的行</td>
+</tr>
+<tr class="odd">
+<td>[range]normal {commands}</td>
+<td>对指定范围的每一行执行普通模式命令</td>
+</tr>
+<tr class="even">
+<td>[range]substitute/{pattern}/[string]/[flags]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[range]global/{pattern}/[cmd]</td>
+<td>对指定范围内匹配的行执行cmd</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>在一行或多个连续行上执行命令
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th>符号</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>第一行</td>
+</tr>
+<tr class="even">
+<td>$</td>
+<td>最后一行</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>虚拟行，位于1上方</td>
+</tr>
+<tr class="even">
+<td>.</td>
+<td>光标所在行</td>
+</tr>
+<tr class="odd">
+<td>’m</td>
+<td>包含位置标记m的行</td>
+</tr>
+<tr class="even">
+<td>’&lt;</td>
+<td>高亮选区的起始行</td>
+</tr>
+<tr class="odd">
+<td>’&gt;</td>
+<td>结束行</td>
+</tr>
+<tr class="even">
+<td>%</td>
+<td>所有行</td>
+</tr>
+</tbody>
+</table></li>
+<li>可以使用高亮区域表示范围，使用模式指定范围，以及用偏移对地址进行修正</li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>使用’:t’和’:m’命令复制和移动行
+<ul>
+<li><table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>:6t.</td>
+<td>line6 -&gt; curline</td>
+</tr>
+<tr class="even">
+<td>:t6</td>
+<td>curline-&gt;below line6</td>
+</tr>
+<tr class="odd">
+<td>:t.</td>
+<td>yyp</td>
+</tr>
+<tr class="even">
+<td>:t$</td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+<li><strong>在指定范围上执行普通模式命令</strong>
+<ul>
+<li>[range]normal [cmd]
+<ul>
+<li>如对多行执行相同的操作，如添加注释等</li>
+</ul></li>
+</ul></li>
+<li>重复上次的Ex命令
+<ul>
+<li>@:</li>
+<li>bn,bp</li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>自动补全Ex命令
+<ul>
+<li><C-d>显示可用的补全列表</C-d></li>
+<li><Tab> <S-Tab></S-Tab></Tab></li>
+</ul></li>
+<li>把当前单词插入到命令行
+<ul>
+<li><C-r><C-w>:插入单词</C-w></C-r></li>
+<li><C-r><C-a>:插入字串</C-a></C-r></li>
+</ul></li>
+<li>回溯历史命令
+<ul>
+<li>set history=N</li>
+</ul></li>
+<li>结识命令行窗口
+<ul>
+<li>q:</li>
+<li><table>
+<thead>
+<tr class="header">
+<th>命令</th>
+<th>动作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>q/</td>
+<td>查找历史命令窗口</td>
+</tr>
+<tr class="even">
+<td>q:</td>
+<td>打开Ex命令窗口</td>
+</tr>
+<tr class="odd">
+<td>&lt;C-f&gt;</td>
+<td>命令行模式到命令行窗口</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>运行Shell命令
+<ul>
+<li>!cmd</li>
+<li>% 当前文件名称</li>
+<li>:te:交互式shell会话 – exit退出</li>
+<li>:read !{cmd}把命令的标准输出重定向到缓冲区</li>
+<li>write !{cmd} 把缓冲区内容传给外部的sh命令作为标准输入</li>
+<li>write! {cmd} 覆盖写入一个文件</li>
+<li><strong>使用外部命令过滤缓冲区内容</strong>
+<ul>
+<li>[range]!{cmd}
+<ul>
+<li>[range]write !{cmd}</li>
+</ul></li>
+<li>Vim对grep以及make有包装命令</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="文件">文件</h2>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="管理多个文件">管理多个文件</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>用缓冲区列表管理打开的文件
+<ul>
+<li>缓冲区：文件在内存中的映像</li>
+<li>:ls
+<ul>
+<li>:bprev,:bnext,bfirst,blast</li>
+<li>:buffer N,:buffer {bufname}</li>
+<li>:bdelete</li>
+</ul></li>
+</ul></li>
+<li>用参数列表将缓冲区分组
+<ul>
+<li>:args
+<ul>
+<li>:args {arglist:通配符，文件名，shell命令结果}
+<ul>
+<li>填充列表参数</li>
+<li>可以使用Glob模式指定文件
+<ul>
+<li>**不可递归，*可递归</li>
+</ul></li>
+<li>使用反引号指定文件:shell命令的输出作为args的参数</li>
+</ul></li>
+</ul></li>
+<li>:argdo:执行命令</li>
+<li>:next,:prev</li>
+</ul></li>
+</ul>
+</section>
+</section>
+
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_07.png" data-background-size="cover" data-background-repeat="no-repeat">
+</section>
+            </div>
+        </div>
+        <script src="https://chenyuhengsjtu.github.io/GitPages/dist/reveal.js"></script>
+        <script src="https://chenyuhengsjtu.github.io/GitPages/plugin/notes/notes.js"></script>
+        <script src="https://chenyuhengsjtu.github.io/GitPages/plugin/markdown/markdown.js"></script>
+        <script src="https://chenyuhengsjtu.github.io/GitPages/plugin/highlight/highlight.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script>
+            // More info about initialization & config:
+            // - https://revealjs.com/initialization/
+            // - https://revealjs.com/config/
+            Reveal.initialize({
+                hash: true,
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+            });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\(','\)']]
+            }
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-clike.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-c.min.js"></script>
+    </body>
+</html>
 
       
     </div>
@@ -241,7 +840,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/AboutMe/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/AboutMe/page/7/">7</a><a class="extend next" rel="next" href="/AboutMe/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/AboutMe/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/AboutMe/page/14/">14</a><a class="extend next" rel="next" href="/AboutMe/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -309,14 +908,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -366,12 +965,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">27k</span>
+    <span title="Symbols count total">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">25 mins.</span>
+    <span title="Reading time total">27 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
