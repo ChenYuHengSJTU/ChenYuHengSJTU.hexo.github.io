@@ -1,5 +1,4 @@
 https://chenyuhengsjtu.github.io/2023/07/12/os_prj3_pre/
-https://chenyuhengsjtu.github.io/2023/07/12/os-prj3-pre/
 https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/
 https://chenyuhengsjtu.github.io/categories/index.html
 https://chenyuhengsjtu.github.io/SJTU/OS/pre.slides.html
