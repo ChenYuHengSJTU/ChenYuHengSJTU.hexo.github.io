@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenyuhengsjtu.github.io/2023/07/12/Vim/</loc>
+    
+    <lastmod>2023-07-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chenyuhengsjtu.github.io/2023/07/12/Vim-html/</loc>
+    
+    <lastmod>2023-07-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/</loc>
     
     <lastmod>2023-07-11</lastmod>
@@ -184,7 +202,7 @@
 
   <url>
     <loc>https://chenyuhengsjtu.github.io/</loc>
-    <lastmod>2023-07-11</lastmod>
+    <lastmod>2023-07-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -192,7 +210,7 @@
   
   <url>
     <loc>https://chenyuhengsjtu.github.io/tags/Lab/</loc>
-    <lastmod>2023-07-11</lastmod>
+    <lastmod>2023-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -201,21 +219,21 @@
   
   <url>
     <loc>https://chenyuhengsjtu.github.io/categories/CSAPP/</loc>
-    <lastmod>2023-07-11</lastmod>
+    <lastmod>2023-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chenyuhengsjtu.github.io/categories/MITOS/</loc>
-    <lastmod>2023-07-11</lastmod>
+    <lastmod>2023-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://chenyuhengsjtu.github.io/categories/Blog/</loc>
-    <lastmod>2023-07-11</lastmod>
+    <lastmod>2023-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

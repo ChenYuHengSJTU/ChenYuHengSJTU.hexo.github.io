@@ -22,13 +22,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Yuheng Chen Blog">
-<meta property="og:url" content="https://chenyuhengsjtu.github.io/AboutMe/page/10/index.html">
+<meta property="og:url" content="https://chenyuhengsjtu.github.io/AboutMe/page/11/index.html">
 <meta property="og:site_name" content="Yuheng Chen Blog">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="ChenYuHeng">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://chenyuhengsjtu.github.io/AboutMe/page/10/">
+<link rel="canonical" href="https://chenyuhengsjtu.github.io/AboutMe/page/11/">
 
 
 <script id="page-configurations">
@@ -160,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/">
+    <link itemprop="mainEntityOfPage" href="https://chenyuhengsjtu.github.io/2023/07/12/Vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/Irving1.jpg">
@@ -174,7 +174,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/07/12/Practical_Vim/" class="post-title-link" itemprop="url">Practical_Vim</a>
+            <a href="/2023/07/12/Vim/" class="post-title-link" itemprop="url">Vim</a>
         </h2>
 
         <div class="post-meta">
@@ -183,8 +183,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-07-12 00:28:25" itemprop="dateCreated datePublished" datetime="2023-07-12T00:28:25+08:00">2023-07-12</time>
+              <time title="Created: 2023-07-12 08:48:22 / Modified: 08:48:40" itemprop="dateCreated datePublished" datetime="2023-07-12T08:48:22+08:00">2023-07-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -202,14 +203,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.4k</span>
+              <span>3.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -227,7 +228,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <title>
-Practical_Vim
+Vim
 </title>
 
         <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/dist/reset.css">
@@ -258,527 +259,272 @@ Practical_Vim
             <div class="slides">
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="vim-解决问题的方式">Vim 解决问题的方式</h2>
+<h2 id="vim的几种模式">Vim的几种模式</h2>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="启动vim">启动Vim</h2>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>结识.命令
-<ul>
-<li>规划按键操作</li>
-<li>一次按键移动，一次按键执行</li>
-</ul></li>
-<li>不要自我重复
-<ul>
-<li>复合命令
-<ul>
-<li><table>
-<thead>
-<tr class="header">
-<th>复合命令</th>
-<th>等效命令</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C</td>
-<td>c$</td>
-</tr>
-<tr class="even">
-<td>s</td>
-<td>cl</td>
-</tr>
-<tr class="odd">
-<td>S</td>
-<td>^c</td>
-</tr>
-<tr class="even">
-<td>I</td>
-<td>^i</td>
-</tr>
-<tr class="odd">
-<td>A</td>
-<td>$a</td>
-</tr>
-<tr class="even">
-<td>o</td>
-<td>A<CR></CR></td>
-</tr>
-<tr class="odd">
-<td>O</td>
-<td>ko</td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<ul>
-<li>以退为进</li>
-<li>执行，重复，回退
-<ul>
-<li><table>
-<thead>
-<tr class="header">
-<th>操作</th>
-<th>重复</th>
-<th>回退</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>edit</td>
-<td>.</td>
-<td>u</td>
-</tr>
-<tr class="even">
-<td>f/t{char}</td>
-<td>;</td>
-<td>,</td>
-</tr>
-<tr class="odd">
-<td>F/T{char}</td>
-<td>;</td>
-<td>,</td>
-</tr>
-<tr class="even">
-<td>/pattern<CR></CR></td>
-<td>n</td>
-<td>N</td>
-</tr>
-<tr class="odd">
-<td>?pattern<CR></CR></td>
-<td>n</td>
-<td>N</td>
-</tr>
-<tr class="even">
-<td>: s</td>
-<td>&amp;</td>
-<td>u</td>
-</tr>
-<tr class="odd">
-<td>qx{changes}q</td>
-<td><span class="citation" data-cites="x">@x</span></td>
-<td>u</td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-<li>查找并手动替换
-<ul>
-<li>* 会查找当前光标下的单词</li>
-</ul></li>
+<li>vim + file ： 从文件末尾开始</li>
+<li>vim +num file: 从第num行开始</li>
 </ul>
 </section>
 </section>
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="普通模式">普通模式</h2>
+<h2 id="文档操作">文档操作</h2>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>把撤销单元切成块
-<ul>
-<li>根据思考的提顿来切分</li>
-<li>up down left right会在insert模式下额外切分</li>
-</ul></li>
-<li>构造可重复的修改
-<ul>
-<li>使 . 发挥出最大的威力</li>
-</ul></li>
-<li>用次数做简单的算数运算
-<ul>
-<li>注意数字的格式</li>
-</ul></li>
-<li>能够重复(.)就别用次数
-<ul>
-<li>使.和u命令都有更细的粒度</li>
-<li><strong><code>执行，重复，回退</code></strong></li>
-</ul></li>
+<li>:x – 保存并退出</li>
+<li>:saveas newfilename – 另存为</li>
+<li>:f filename – 改变编辑的文件名，这时再保存相当于另存为</li>
+<li>:Sex – 水平分割一个窗口，浏览文件系统；</li>
+<li>:Vex – 垂直分割一个窗口，浏览文件系统；</li>
 </ul>
 </section>
 </section>
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="插入模式">插入模式</h2>
+<h2 id="光标移动">光标移动</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="基本移动">基本移动</h5>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>在插入模式中及时修正错误
+<li>normal 模式下：
 <ul>
-<li>&lt;C - h&gt; 回退</li>
-<li>&lt;C - w&gt; 删除前一个单词</li>
-<li>&lt;C - u&gt; 删除至行首</li>
+<li>w: 将光标移动到下一个单词的开头</li>
+<li>b: 将光标移动到前一个单词的开头</li>
+<li>e: 将光标移动到下一个单词的词末</li>
+<li>E: 移动到单词的结尾(忽略标点符号)</li>
+<li>ge: 将光标移动到上一个单词的词末</li>
+<li><mark>上面的操作都可以配合n使用，比如在正常模式(下面会讲到)下输入3h， 则光标向左移动3个字符。</mark></li>
+<li>0: 移动到行首。</li>
+<li>g0: 移到光标所在屏幕行行首</li>
+<li>$: 移动到行尾。</li>
+<li>g$: 移动光标所在屏幕行行尾。</li>
+<li>n|: 把光标移到递n列上。</li>
+<li>nG: 到文件第n行。</li>
 </ul></li>
-<li>返回普通模式
+</ul>
+<hr>
 <ul>
-<li>&lt;C - [&gt;</li>
-<li>&lt;C - o&gt; 插入-普通模式
-<ul>
-<li>可以执行一次普通模式的指令</li>
+<li><ul>
+<li>:n&lt; cr &gt; 移动到第n行。</li>
+<li>:$&lt; cr &gt; 移动到最后一行。</li>
+<li>H: 把光标移到屏幕最顶端一行。</li>
+<li>M: 把光标移到屏幕中间一行。</li>
+<li>L: 把光标移到屏幕最底端一行。</li>
+<li>gg: 到文件头部。</li>
+<li>G: 到文件尾部。</li>
+<li>(：移到当前句子的开头</li>
+<li>): 移到下一个句子的开头</li>
+<li>{: 移到当前一段的开头</li>
+<li>}：移到下一段的开头</li>
+<li>[ [ : 移到当前这一节的开头</li>
+<li>]]: 移到下一节的开头</li>
 </ul></li>
-</ul></li>
-<li>不离开插入模式，粘贴寄存器中的文本
-<ul>
-<li>&lt;C - r&gt;{register}</li>
-</ul></li>
-<li>16 随时随地做运算</li>
 </ul>
 </section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="翻屏">翻屏</h5>
+</section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>用字符编码插入非常用字符
-<ul>
-<li>&lt;C - v&gt;{123}</li>
-<li>&lt;C - v&gt;u{1234}</li>
-<li>&lt;C - v&gt;{nondigit}</li>
-<li>&lt;C - k&gt;{char1}{char2}
-<ul>
-<li>插入二合字母表示的字符</li>
-</ul></li>
-</ul></li>
-<li>用替换模式替换已有文本
-<ul>
-<li>R</li>
-<li>r – 单个字符</li>
-</ul></li>
+<li>ctrl+f: 下翻一屏。</li>
+<li>ctrl+b: 上翻一屏。</li>
+<li>ctrl+d: 下翻半屏。</li>
+<li>ctrl+u: 上翻半屏。</li>
+<li>ctrl+e: 向下滚动一行。</li>
+<li>ctrl+y: 向上滚动一行。</li>
+<li>n%: 到文件n%的位置。</li>
+<li>zz: 将当前行移动到屏幕中央。</li>
+<li>zt: 将当前行移动到屏幕顶端。</li>
+<li>zb: 将当前行移动到屏幕底端</li>
 </ul>
 </section>
 </section>
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="可视模式">可视模式</h2>
+<h2 id="插入文本">插入文本</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="基本插入">基本插入</h5>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<p>注意可以使用如r等命令对行，块进行操作，会作用在每一个字符上</p>
 <ul>
-<li>选择高亮区域
+<li>i: 在光标前插入；一个小技巧：按8，再按i，进入插入模式，输入=， 按esc进入命令模式，就会出现8个=。 <mark>这在插入分割线时非常有用，如30i+&lt; esc &gt;就插入了36个+组成的分割线。</mark></li>
+<li>I: 在当前行第一个非空字符前插入；</li>
+<li>gI: 在当前行第一列插入；</li>
+<li>a: 在光标后插入；</li>
+<li>A: 在当前行最后插入；</li>
+<li>o: 在下面新建一行插入；</li>
+<li>O: 在上面新建一行插入；</li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="改写插入">改写插入</h5>
+</section>
+</section>
+<section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h2 id="剪切复制和寄存器">剪切复制和寄存器</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="剪切和复制粘贴">剪切和复制、粘贴</h5>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li><table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>v</td>
-<td>字符</td>
-</tr>
-<tr class="even">
-<td>V</td>
-<td>行</td>
-</tr>
-<tr class="odd">
-<td>&lt;C-v&gt;</td>
-<td>块</td>
-</tr>
-<tr class="even">
-<td>gv</td>
-<td>重选</td>
-</tr>
-<tr class="odd">
-<td>o</td>
-<td>切换高亮选区的活动端</td>
-</tr>
-</tbody>
-</table></li>
-<li>这些指令可以用于在不同模式下切换</li>
-</ul></li>
+<li>[ n ]x: 剪切光标右边n个字符，相当于d[n]l。</li>
+<li>[ n ]X: 剪切光标左边n个字符，相当于d[n]h。</li>
+<li>y: 复制在可视模式下选中的文本。</li>
+<li>yy or Y: 复制整行文本。</li>
+<li>y[n]w: 复制一(n)个词。</li>
+<li>y[n]l: 复制光标右边1(n)个字符。</li>
+<li>y[n]h: 复制光标左边1(n)个字符。</li>
+<li>==y$: 从光标当前位置复制到行尾。</li>
+<li>==y0: 从光标当前位置复制到行首。</li>
+<li>:m,ny&lt; cr &gt; 复制m行到n行的内容。</li>
+<li>==y1G或ygg: 复制光标以上的所有行。</li>
+<li>==yG: 复制光标以下的所有行。</li>
 </ul>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>重复执行面向行的可视命令
+<li>yaw和yas：复制一个词和复制一个句子，即使光标不在词首和句首也没关系。</li>
+<li>==d: 删除（剪切）在可视模式下选中的文本。</li>
+<li>==d$ or D: 删除（剪切）当前位置到行尾的内容。</li>
+<li>d[n]w: 删除（剪切）1(n)个单词</li>
+<li>d[n]l: 删除（剪切）光标右边1(n)个字符。</li>
+<li>d[n]h: 删除（剪切）光标左边1(n)个字符。</li>
+<li>d0: 删除（剪切当前位置到行首的内容</li>
+<li>[n ]dd: 删除（剪切）1(n)行。</li>
+<li>:m,nd&lt;&gt; 剪切m行到n行的内容。</li>
+<li>d1G或dgg: 剪切光标以上的所有行。</li>
+<li>dG: 剪切光标以下的所有行。</li>
+<li>daw和das：剪切一个词和剪切一个句子，即使光标不在词首和句首也没关系。</li>
+<li>d/f&lt;&gt;：这是一个比较高级的组合命令，它将删除当前位置 到下一个f之间的内容。</li>
+<li>p: 在光标之后粘贴。</li>
+<li>P: 在光标之前粘贴。</li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="文本对象">文本对象</h5>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>. 选择的文本数量和上次相同</li>
-</ul></li>
-<li>只要可能，最好使用操作符命令，而不是可视命令
-<ul>
-<li>可是命令的.可能会产生异常行为</li>
-<li>vit，viw</li>
-<li>可视模式下，U -&gt; gU</li>
-</ul></li>
-<li>用面向列块的可视模式编辑表格数据
-<ul>
-<li>以列为单位工作</li>
-</ul></li>
-<li>修改列文本
-<ul>
-<li>用列块可视模式可以同时往若干行中插入文本</li>
-</ul></li>
-<li>在长短不一的高亮块后添加文本
-<ul>
-<li>使用$</li>
-<li>注意，i，a不能使用，要用I，A代替</li>
-<li>按下&lt;ESC&gt;后会同步更改</li>
-</ul></li>
+<li>aw：一个词</li>
+<li>as：一句。</li>
+<li>ap：一段。</li>
+<li>ab：一块（包含在圆括号中的）</li>
+<li>==y, d, c, v都可以跟文本对象。</li>
 </ul>
 </section>
 </section>
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="命令行模式">命令行模式</h2>
+<h2 id="查找与替换">查找与替换</h2>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="查找">查找</h5>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>结识命令行模式
+<li>/something: 在后面的文本中查找something。</li>
+<li>?something: 在前面的文本中查找something。</li>
+<li>/pattern/+number: 将光标停在包含pattern的行后面第number行上。</li>
+<li>/pattern/-number: 将光标停在包含pattern的行前面第number行上。</li>
+<li>n: 向后查找下一个。</li>
+<li>N: 向前查找下一个。</li>
+<li>可以用grep或vimgrep查找一个模式都在哪些地方出现过，其中:grep是调用外部的grep程序，而:vimgrep是vim自己的查找算法。用法为： :vim[ grep ]/pattern/[g] [j] files</li>
+<li>g的含义是如果一个模式在一行中多次出现，则这一行也在结果中多次出现。</li>
+<li>j的含义是grep结束后，结果停在第j项，默认是停在第一项。</li>
+<li>vimgrep前面可以加数字限定搜索结果的上限，如:1vim/pattern/ % 只查找那个模式在本文件中的第一个出现。</li>
+<li>其实vimgrep在读纯文本电子书时特别有用，可以生成导航的目录。比如电子书中每一节的标题形式为：n. xxxx。你就可以这样：:vim/^d{1,}./ %然后用:cw或:copen查看结果，可以用C-w H把quickfix窗口移到左侧，就更像个目录了。</li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="替换">替换</h5>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>：，/,&lt;C-r&gt;=</li>
-<li>&lt;C-r&gt;{register}插入寄存器内容</li>
-<li>操作缓冲区文本的Ex命令 – 可以无需移动光标进行修改</li>
+<li>:s/old/new - 用new替换当前行第一个old。</li>
+<li>:s/old/new/g - 用new替换当前行所有的old。</li>
+<li>:n1,n2s/old/new/g - 用new替换文件n1行到n2行所有的old。</li>
+<li>:%s/old/new/g - 用new替换文件中所有的old。</li>
+<li>:%s/^/xxx/g - 在每一行的行首插入xxx，^表示行首。</li>
+<li>:%s/ $ /xxx/g - 在每一行的行尾插入xxx，$表示行尾。</li>
+<li>所有替换命令末尾加上c，每个替换都将需要用户确认。</li>
+<li>关于range的规定为：
+<ul>
+<li>如果不指定range，则表示当前行。</li>
+<li>m,n: 从m行到n行。</li>
+<li>0: 最开始一行（可能是这样）。</li>
+<li>$: 最后一行</li>
+<li>. : 当前行</li>
+<li>%: 所有行</li>
 </ul></li>
 </ul>
 </section>
-<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>[range]delete [x]</td>
-<td>删除行到寄存器x</td>
-</tr>
-<tr class="even">
-<td>[range]yank [x]</td>
-<td>复制</td>
-</tr>
-<tr class="odd">
-<td>[line]put [x]</td>
-<td>指定行后粘贴寄存器x的内容</td>
-</tr>
-<tr class="even">
-<td>[range]copy {address}</td>
-<td>将指定范围内的行拷贝到{address}所指定的行之下</td>
-</tr>
-<tr class="odd">
-<td>[range]move {address}</td>
-<td>移动</td>
-</tr>
-<tr class="even">
-<td>[range]join</td>
-<td>连接指定范围内的行</td>
-</tr>
-<tr class="odd">
-<td>[range]normal {commands}</td>
-<td>对指定范围的每一行执行普通模式命令</td>
-</tr>
-<tr class="even">
-<td>[range]substitute/{pattern}/[string]/[flags]</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>[range]global/{pattern}/[cmd]</td>
-<td>对指定范围内匹配的行执行cmd</td>
-</tr>
-</tbody>
-</table>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="正则表达式">正则表达式</h5>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>在一行或多个连续行上执行命令
-<ul>
-<li><table>
-<thead>
-<tr class="header">
-<th>符号</th>
-<th>地址</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>第一行</td>
-</tr>
-<tr class="even">
-<td>$</td>
-<td>最后一行</td>
-</tr>
-<tr class="odd">
-<td>0</td>
-<td>虚拟行，位于1上方</td>
-</tr>
-<tr class="even">
-<td>.</td>
-<td>光标所在行</td>
-</tr>
-<tr class="odd">
-<td>’m</td>
-<td>包含位置标记m的行</td>
-</tr>
-<tr class="even">
-<td>’&lt;</td>
-<td>高亮选区的起始行</td>
-</tr>
-<tr class="odd">
-<td>’&gt;</td>
-<td>结束行</td>
-</tr>
-<tr class="even">
-<td>%</td>
-<td>所有行</td>
-</tr>
-</tbody>
-</table></li>
-<li>可以使用高亮区域表示范围，使用模式指定范围，以及用偏移对地址进行修正</li>
-</ul></li>
-</ul>
-</section>
-<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<ul>
-<li>使用’:t’和’:m’命令复制和移动行
-<ul>
-<li><table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>用途</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>:6t.</td>
-<td>line6 -&gt; curline</td>
-</tr>
-<tr class="even">
-<td>:t6</td>
-<td>curline-&gt;below line6</td>
-</tr>
-<tr class="odd">
-<td>:t.</td>
-<td>yyp</td>
-</tr>
-<tr class="even">
-<td>:t$</td>
-<td></td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-<li><strong>在指定范围上执行普通模式命令</strong>
-<ul>
-<li>[range]normal [cmd]
-<ul>
-<li>如对多行执行相同的操作，如添加注释等</li>
-</ul></li>
-</ul></li>
-<li>重复上次的Ex命令
-<ul>
-<li>@:</li>
-<li>bn,bp</li>
-</ul></li>
-</ul>
-</section>
-<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<ul>
-<li>自动补全Ex命令
-<ul>
-<li><C-d>显示可用的补全列表</C-d></li>
-<li><Tab> <S-Tab></S-Tab></Tab></li>
-</ul></li>
-<li>把当前单词插入到命令行
-<ul>
-<li><C-r><C-w>:插入单词</C-w></C-r></li>
-<li><C-r><C-a>:插入字串</C-a></C-r></li>
-</ul></li>
-<li>回溯历史命令
-<ul>
-<li>set history=N</li>
-</ul></li>
-<li>结识命令行窗口
-<ul>
-<li>q:</li>
-<li><table>
-<thead>
-<tr class="header">
-<th>命令</th>
-<th>动作</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>q/</td>
-<td>查找历史命令窗口</td>
-</tr>
-<tr class="even">
-<td>q:</td>
-<td>打开Ex命令窗口</td>
-</tr>
-<tr class="odd">
-<td>&lt;C-f&gt;</td>
-<td>命令行模式到命令行窗口</td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-</ul>
-</section>
-<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
-<ul>
-<li>运行Shell命令
-<ul>
-<li>!cmd</li>
-<li>% 当前文件名称</li>
-<li>:te:交互式shell会话 – exit退出</li>
-<li>:read !{cmd}把命令的标准输出重定向到缓冲区</li>
-<li>write !{cmd} 把缓冲区内容传给外部的sh命令作为标准输入</li>
-<li>write! {cmd} 覆盖写入一个文件</li>
-<li><strong>使用外部命令过滤缓冲区内容</strong>
-<ul>
-<li>[range]!{cmd}
-<ul>
-<li>[range]write !{cmd}</li>
-</ul></li>
-<li>Vim对grep以及make有包装命令</li>
-</ul></li>
-</ul></li>
+<li>:help pattern得到更多帮助。</li>
 </ul>
 </section>
 </section>
 <section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="文件">文件</h2>
+<h2 id="排版">排版</h2>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
-<h2 id="管理多个文件">管理多个文件</h2>
+<h5 id="基本排版">基本排版</h5>
 </section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>用缓冲区列表管理打开的文件
+<li><p>&lt;&lt; 向左缩进一个shiftwidth</p></li>
+<li><p>&gt;&gt;向右缩进一个shiftwidth</p></li>
+<li><p>:ce(nter) 本行文字居中</p></li>
+<li><p>:le(ft) 本行文字靠左</p></li>
+<li><p>:ri(ght) 本行文字靠右</p></li>
+<li><p>gq 对选中的文字重排，即对过长的文字进行断行</p></li>
+<li><p>gqq 重排当前行</p></li>
+<li><p>gqnq 重排n行</p></li>
+<li><p>gqap 重排当前段</p></li>
+<li><p>gqnap 重排n段</p></li>
+<li><p>gqnj 重排当前行和下面n行</p></li>
+<li><p>gqQ 重排当前段对文章末尾</p></li>
+<li><p>J 拼接当前行和下一行</p></li>
+<li><p>gJ 同 J ，不过合并后不留空格。</p></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="拼写检查">拼写检查</h5>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>缓冲区：文件在内存中的映像</li>
-<li>:ls
+<li>:set spell－开启拼写检查功能</li>
+<li>:set nospell－关闭拼写检查功能</li>
+<li>]s－移到下一个拼写错误的单词</li>
+<li>[s－作用与上一命令类似，但它是从相反方向进行搜索</li>
+<li>z=－显示一个有关拼写错误单词的列表，可从中选择</li>
+<li>zg－告诉拼写检查器该单词是拼写正确的</li>
+<li>zw－与上一命令相反，告诉拼写检查器该单词是拼写错误的</li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
+<h5 id="统计字数">统计字数</h5>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
 <ul>
-<li>:bprev,:bnext,bfirst,blast</li>
-<li>:buffer N,:buffer {bufname}</li>
-<li>:bdelete</li>
-</ul></li>
-</ul></li>
-<li>用参数列表将缓冲区分组
-<ul>
-<li>:args
-<ul>
-<li>:args {arglist:通配符，文件名，shell命令结果}
-<ul>
-<li>填充列表参数</li>
-<li>可以使用Glob模式指定文件
-<ul>
-<li>**不可递归，*可递归</li>
-</ul></li>
-<li>使用反引号指定文件:shell命令的输出作为args的参数</li>
-</ul></li>
-</ul></li>
-<li>:argdo:执行命令</li>
-<li>:next,:prev</li>
-</ul></li>
+<li>g ^g可以统计文档字符数，行数。 将光标放在最后一个字符上，用字符数减去行数可以粗略统计中文文档的字数。 以上对 Mac 或 Unix 的文件格式适用。 如果是 Windows 文件格式（即换行符有两个字节），字数的统计方法为： 字符数 - 行数 * 2。</li>
 </ul>
 </section>
 </section>
@@ -833,7 +579,7 @@ Practical_Vim
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/AboutMe/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/AboutMe/">1</a><span class="space">&hellip;</span><a class="page-number" href="/AboutMe/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/AboutMe/page/11/">11</a><a class="page-number" href="/AboutMe/page/12/">12</a><a class="extend next" rel="next" href="/AboutMe/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/AboutMe/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/AboutMe/">1</a><span class="space">&hellip;</span><a class="page-number" href="/AboutMe/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/AboutMe/page/12/">12</a><a class="extend next" rel="next" href="/AboutMe/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
