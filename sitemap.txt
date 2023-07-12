@@ -1,3 +1,4 @@
+https://chenyuhengsjtu.github.io/2023/07/12/%E8%AE%A1%E7%AE%97%E4%B9%8B%E9%AD%82/
 https://chenyuhengsjtu.github.io/2023/07/12/OS_Prj3_Pre/
 https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/
 https://chenyuhengsjtu.github.io/categories/index.html
@@ -24,3 +25,4 @@ https://chenyuhengsjtu.github.io/categories/CSAPP/
 https://chenyuhengsjtu.github.io/categories/MITOS/
 https://chenyuhengsjtu.github.io/categories/Blog/
 https://chenyuhengsjtu.github.io/categories/Presentation/
+https://chenyuhengsjtu.github.io/categories/Reading-Notes/
