@@ -511,7 +511,7 @@
   </entry>
   <entry>
     <title>Practical_Vim</title>
-    <url>/2023/07/12/Practical_Vim/</url>
+    <url>/2023/07/13/Practical_Vim/</url>
     <content><![CDATA[<html lang="en">
     <head>
         <meta charset="utf-8">
@@ -531,7 +531,7 @@ Practical_Vim
     </head>
     <style>
         section {
-            font-size: 30px;
+            font-size: 25px;
         }
         p {
             text-align: left;
@@ -547,7 +547,6 @@ Practical_Vim
     <body>
         <div class="reveal">
             <div class="slides">
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="vim-解决问题的方式">Vim 解决问题的方式</h2>
 </section>
@@ -662,8 +661,6 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="普通模式">普通模式</h2>
 </section>
@@ -689,8 +686,6 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="插入模式">插入模式</h2>
 </section>
@@ -736,8 +731,6 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="可视模式">可视模式</h2>
 </section>
@@ -808,8 +801,6 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="命令行模式">命令行模式</h2>
 </section>
@@ -1031,13 +1022,9 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="文件">文件</h2>
 </section>
-</section>
-<section>
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_04.png" data-background-size="cover" data-background-repeat="no-repeat">
 <h2 id="管理多个文件">管理多个文件</h2>
 </section>
@@ -1072,6 +1059,50 @@ Practical_Vim
 </ul></li>
 </ul>
 </section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>管理隐藏缓冲区
+<ul>
+<li>Vim对修改过的缓冲区会给予特殊对待</li>
+<li>标记 h : 隐藏缓冲区</li>
+<li>qa[ll]! wa[ll]!</li>
+</ul></li>
+<li>将工作区切分成窗口
+<ul>
+<li>&lt;C-w&gt;s 水平切分,&lt;C-w&gt;v 垂直切分
+<ul>
+<li>编辑长文件时好用</li>
+</ul></li>
+<li>sp[lit] {file} 水平打开新文件</li>
+<li>vsp[lit] {file} 垂直打开新文件</li>
+<li>在窗口间切换
+<ul>
+<li>|命令|用途| |&lt;C-w&gt;w|循环| |&lt;C-w&gt;h|左边| |&lt;C-w&gt;j|下边| |&lt;C-w&gt;k|上边| |&lt;C-w&gt;l|右边|</li>
+</ul></li>
+<li>关闭窗口
+<ul>
+<li>:clo ： 关闭所有</li>
+<li>:on[ly] ： 只保留活动窗口</li>
+</ul></li>
+<li>改变窗口大小及重新排列窗口</li>
+</ul></li>
+</ul>
+</section>
+<section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_02.png" data-background-size="cover" data-background-repeat="no-repeat">
+<ul>
+<li>用标签页将窗口分组
+<ul>
+<li>lcd {path} : 设置当前窗口的本地工作目录</li>
+<li>打开及关闭标签页
+<ul>
+<li>:tabe[dit] {filename}</li>
+<li>:tabc[lose]</li>
+<li>:tabo[nly]</li>
+<li>&lt;C-w&gt;T 当前窗口移动到一个新标签页</li>
+</ul></li>
+<li>标签页直接切换</li>
+</ul></li>
+</ul>
 </section>
 
 <section data-background-image="https://chenyuhengsjtu.github.io/SJTU/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80/1.%E7%99%BE%E5%BB%BF%E7%BA%A2-%E6%9D%8E%E4%B8%80_07.png" data-background-size="cover" data-background-repeat="no-repeat">
@@ -21090,8 +21121,8 @@ slides
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/slidevjs/slidev/assets/favicon.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=PT+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" type="text/css">
-  <script type="module" crossorigin src="/NetlifyPages/assets/index-6b082c44.js"></script>
-  <link rel="stylesheet" href="/NetlifyPages/assets/index-6a4ee548.css">
+  <script type="module" crossorigin src="/assets/index-6b082c44.js"></script>
+  <link rel="stylesheet" href="/assets/index-6a4ee548.css">
 </head>
 <body>
   <div id="app"></div>

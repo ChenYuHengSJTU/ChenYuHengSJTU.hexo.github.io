@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chenyuhengsjtu.github.io/2023/07/13/Practical_Vim/</loc>
+    
+    <lastmod>2023-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chenyuhengsjtu.github.io/2023/07/13/slidev/</loc>
     
     <lastmod>2023-07-13</lastmod>
@@ -41,15 +50,6 @@
     <loc>https://chenyuhengsjtu.github.io/2023/07/12/OS_Prj3_Pre/</loc>
     
     <lastmod>2023-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chenyuhengsjtu.github.io/2023/07/12/Practical_Vim/</loc>
-    
-    <lastmod>2023-07-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
