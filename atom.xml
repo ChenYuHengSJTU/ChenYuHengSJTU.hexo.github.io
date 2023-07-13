@@ -6,7 +6,7 @@
   <link href="https://chenyuhengsjtu.github.io/atom.xml" rel="self"/>
   
   <link href="https://chenyuhengsjtu.github.io/"/>
-  <updated>2023-07-12T12:30:27.982Z</updated>
+  <updated>2023-07-13T09:41:30.191Z</updated>
   <id>https://chenyuhengsjtu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Slidev</title>
+    <link href="https://chenyuhengsjtu.github.io/2023/07/13/slidev/"/>
+    <id>https://chenyuhengsjtu.github.io/2023/07/13/slidev/</id>
+    <published>2023-07-13T09:40:00.000Z</published>
+    <updated>2023-07-13T09:41:30.191Z</updated>
+    
+    <content type="html"><![CDATA[<html lang="en"><head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="icon" href="https://cdn.jsdelivr.net/gh/slidevjs/slidev/assets/favicon.png"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=PT+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" type="text/css">  <script type="module" crossorigin src="/NetlifyPages/assets/index-6b082c44.js"></script>  <link rel="stylesheet" href="/NetlifyPages/assets/index-6a4ee548.css"></head><body>  <div id="app"></div><script async src="https://platform.twitter.com/widgets.js"></script></body></html>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link rel=&quot;icon&quot;</summary>
+      
+    
+    
+    
+    <category term="Blog" scheme="https://chenyuhengsjtu.github.io/categories/Blog/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>QuantumComputation</title>
