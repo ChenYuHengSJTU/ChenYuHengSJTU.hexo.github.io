@@ -528,7 +528,7 @@ Practical_Vim
 
         <!-- Theme used for syntax highlighted code -->
         <link rel="stylesheet" href="https://chenyuhengsjtu.github.io/GitPages/plugin/highlight/monokai.css">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://raw.githubusercontent.com/ChenYuHengSJTU/ChenYuHengSJTU.github.io/main/favicon/vim_icon.ico" type="image/x-icon">
     </head>
 
     <style>
